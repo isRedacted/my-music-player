@@ -6,6 +6,7 @@ import "."
 /*
 TODO:
 - Fix spacing so that controls are properly centred (Mostly that damn play/pause control area)
+    - Possibly worth saying "screw it" and making it entirely single line with play/pause controls on the left
 - Add alt text on highlight
 - Add accent colour on highlight
 - Style progress/volume sliders
