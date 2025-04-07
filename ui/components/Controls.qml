@@ -76,7 +76,7 @@ Rectangle {
             }
         }
 
-        // Progress
+        // Progress slider
         Slider {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
