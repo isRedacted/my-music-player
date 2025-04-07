@@ -6,6 +6,7 @@ QtObject {
     property color primaryColor: "#232323"
     property color backgroundColor: "#0f0f0f"
     property color accentColor: "#569cd6"
+    property color textColor: "white"
 
     // Fonts/Font sizes
     property int fontSizeBig: 32
