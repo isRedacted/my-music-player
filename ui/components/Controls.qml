@@ -5,8 +5,6 @@ import "."
 
 /*
 TODO:
-- Fix spacing so that controls are properly centred (Mostly that damn play/pause control area)
-    - Possibly worth saying "screw it" and making it entirely single line with play/pause controls on the left
 - Add alt text on highlight
 - Add accent colour on highlight
 - Style progress/volume sliders
@@ -50,50 +48,55 @@ Rectangle {
             // Left spacer (pushes away from the left)
             Item {Layout.fillWidth: true}
 
-            // Player buttons
-            RowLayout {
-                Layout.alignment: Qt.AlignHCenter
-                // Previous button
-                Image {
-                    id: "previousButton"
-                    source: "../../assets/skip_previous.svg"
-                    sourceSize.width: Style.playerButtonWidth
-                    sourceSize.height: Style.playerButtonHeight
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("Prev Clicked!")
+            Rectangle {
+                width: parent.width
+                height: Style.playerButtonHeight
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                // Player buttons
+                RowLayout {
+                    anchors.centerIn: parent
+                    // Previous button
+                    Image {
+                        id: "previousButton"
+                        source: "../../assets/skip_previous.svg"
+                        sourceSize.width: Style.playerButtonWidth
+                        sourceSize.height: Style.playerButtonHeight
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("Prev Clicked!")
+                            }
                         }
                     }
-                }
-                // Play/pause button
-                Image {
-                    id: "playButton"
-                    source: "../../assets/play_circle.svg"
-                    sourceSize.width: Style.playButtonWidth
-                    sourceSize.height: Style.playButtonHeight
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("Play Clicked!")
+                    // Play/pause button
+                    Image {
+                        id: "playButton"
+                        source: "../../assets/play_circle.svg"
+                        sourceSize.width: Style.playButtonWidth
+                        sourceSize.height: Style.playButtonHeight
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("Play Clicked!")
+                            }
                         }
                     }
-                }
-                // Next button
-                Image {
-                    id: "nextButton"
-                    source: "../../assets/skip_next.svg"
-                    sourceSize.width: Style.playerButtonWidth
-                    sourceSize.height: Style.playerButtonHeight
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("Next Clicked!")
+                    // Next button
+                    Image {
+                        id: "nextButton"
+                        source: "../../assets/skip_next.svg"
+                        sourceSize.width: Style.playerButtonWidth
+                        sourceSize.height: Style.playerButtonHeight
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("Next Clicked!")
+                            }
                         }
                     }
                 }
             }
-
             // Centre spacer (pushes to the right)
             Item {Layout.fillWidth: true}
 
