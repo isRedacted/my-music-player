@@ -12,6 +12,7 @@ ApplicationWindow {
     minimumWidth: 640
     minimumHeight: 360
 
+
     Rectangle {
         anchors.fill: parent
         color: Style.backgroundColor
@@ -23,17 +24,24 @@ ApplicationWindow {
             Rectangle {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                color: "transparent"
                 Text {
                     text: "Main container"
                 }
 
-                RowLayout {
+                // Resizable split view for sidebar and main content area
+                SplitView {
                     anchors.fill: parent
+                    orientation: Qt.Horizontal
+                    handle: Rectangle {
+                        color: Style.backgroundColor
+                        implicitWidth: 4
+                        implicitHeight: 4
+                    }
 
                     // Sidebar
                     Rectangle {
-                        Layout.preferredWidth: 180
+                        SplitView.minimumWidth: 120
+                        SplitView.preferredWidth: 180
                         Layout.fillHeight: true
                         color: "green"
                         Text {
