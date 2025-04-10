@@ -48,6 +48,7 @@ ApplicationWindow {
                         Text {
                             text: "Sidebar"
                         }
+                        Sidebar{}
                     }
 
                     // Main content area
