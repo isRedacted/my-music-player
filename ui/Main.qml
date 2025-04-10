@@ -42,6 +42,7 @@ ApplicationWindow {
                     Rectangle {
                         SplitView.minimumWidth: 120
                         SplitView.preferredWidth: 180
+                        SplitView.maximumWidth: 300
                         Layout.fillHeight: true
                         color: "green"
                         Text {
@@ -57,6 +58,7 @@ ApplicationWindow {
                         Text {
                             text: "Main content area"
                         }
+                        Home{}
                     }
                 }
             }
