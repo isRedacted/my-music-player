@@ -1,2 +1,2 @@
 # qmldir
-singleton Style Style.qml
+singleton Style Style.qml # type: ignore
