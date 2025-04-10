@@ -22,11 +22,11 @@ Rectangle {
         // All buttons
         RowLayout {
             Layout.fillWidth: true
+            Layout.leftMargin: 50
+            Layout.topMargin: 10
 
             // Song time
             RowLayout {
-                Layout.leftMargin: 50
-                Layout.topMargin: 10
                 Layout.alignment: Qt.AlignTop
                 Text {
                     text: "0:00"
@@ -49,8 +49,6 @@ Rectangle {
             Item {Layout.fillWidth: true}
 
             Rectangle {
-                width: parent.width
-                height: Style.playerButtonHeight
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 // Player buttons
