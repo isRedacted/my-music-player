@@ -53,6 +53,7 @@ ApplicationWindow {
 
                     // Main content area
                     Rectangle {
+                        id: mainView
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         color: "yellow"
