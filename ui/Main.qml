@@ -9,8 +9,8 @@ ApplicationWindow {
     width: 1280
     height: 720
     title: "My Music Player"
-    minimumWidth: 640
-    minimumHeight: 360
+    minimumWidth: 800
+    minimumHeight: 450
 
 
     Rectangle {
