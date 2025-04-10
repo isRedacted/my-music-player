@@ -4,6 +4,7 @@ import QtQuick 2.15
 QtObject {
     // Colours
     property color primaryColor: "#232323"
+    property color secondaryColor: "#333333"
     property color backgroundColor: "#0f0f0f"
     property color accentColor: "#569cd6"
     property color textColor: "white"

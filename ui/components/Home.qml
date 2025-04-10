@@ -5,7 +5,4 @@ import "."
 Rectangle {
     anchors.fill: parent
     color: Style.primaryColor
-
-    TableView {
-    }
 }
