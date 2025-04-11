@@ -175,6 +175,13 @@ Rectangle {
             Layout.rightMargin: 20
             Layout.maximumWidth: 1000
             focusPolicy: Qt.NoFocus
+
+            onPressedChanged: {
+                if (!pressed)
+                {
+                    console.log(value)
+                }
+            }
         }
     }
 }
