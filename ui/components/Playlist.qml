@@ -4,8 +4,12 @@ import "."
 
 Rectangle {
     anchors.fill: parent
-    color: Style.primaryColor
     
+    Rectangle {
+        height: parent.height / 6
+        width: parent.width
+        color: "green"
+    }
 
     TableView {
         anchors.fill: parent
