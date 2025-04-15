@@ -60,7 +60,12 @@ ApplicationWindow {
                         Text {
                             text: "Main content area"
                         }
-                        Home{}
+                        Loader{
+                            id: mainContentLoader
+                            anchors.fill: parent
+                            
+                            source: "components/Home.qml"
+                        }
                     }
                 }
             }
