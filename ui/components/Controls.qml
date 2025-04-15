@@ -63,7 +63,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log("Prev Clicked!")
+                                bridge.previousButton()
                             }
                         }
                     }
@@ -76,7 +76,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log("Play Clicked!")
+                                bridge.playPause()
                             }
                         }
                     }
@@ -89,7 +89,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log("Next Clicked!")
+                                bridge.nextButton()
                             }
                         }
                     }
