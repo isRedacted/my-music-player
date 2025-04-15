@@ -6,6 +6,10 @@ Rectangle {
     anchors.fill: parent
     color: "Green"
 
+    Component.onCompleted: {
+        console.log("loaded!")
+    }
+
     TableView {
         anchors.fill: parent
 
