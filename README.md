@@ -3,7 +3,7 @@ A (work in progress) music player does all the things that *I* want it to do. De
 
 (Screenshot TBD)
 
-# Features
+# Planned Features
 - M3U-based playlist organisation
   - Relative pathing for easy syncing
 - Supports MP3, M4A, FLAC, and WAV
