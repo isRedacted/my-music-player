@@ -1,3 +1,5 @@
+/* Will look something like MusicBee's album and artists view */
+
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import "."
@@ -8,11 +10,5 @@ Rectangle {
 
     Component.onCompleted: {
         console.log("loaded!")
-    }
-
-    TableView {
-        anchors.fill: parent
-
-        
     }
 }
