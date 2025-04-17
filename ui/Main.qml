@@ -64,7 +64,7 @@ ApplicationWindow {
                             id: mainContentLoader
                             anchors.fill: parent
                             
-                            source: "components/Home.qml"
+                            source: "components/Library.qml"
                         }
                     }
                 }
