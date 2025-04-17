@@ -10,6 +10,7 @@ A (work in progress) music player does all the things that *I* want it to do. De
 - Library browsing
 - Background file monitoring for changes
 - Last.fm integration
+- Tag editing
 - Android/iOS (on the "nice to have" list)
 
 # Installation
