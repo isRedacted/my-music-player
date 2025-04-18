@@ -33,3 +33,11 @@ class Bridge(QObject):
     @pyqtSlot()
     def nextButton(self):
         print("Play/pause button pressed")
+    
+    @pyqtSlot()
+    def seek(self, pos):
+        self.player.setPosition(pos)
+    
+    @pyqtSlot()
+    def newSong(self, track):
+        self.player.newSong(track)
