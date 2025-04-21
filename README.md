@@ -12,6 +12,8 @@ A (work in progress) music player does all the things that *I* want it to do. De
 - Last.fm integration
 - Tag editing
 - Android/iOS (on the "nice to have" list)
+- Free forever (beer and speech)
+	- I'm making this for fun and to improve my programming skills, I will never ever ever charge money for it or any of its features
 
 # Installation
 ## Windows
