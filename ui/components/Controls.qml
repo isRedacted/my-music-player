@@ -63,7 +63,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                bridge.previousButton()
+                                controller.previousButton()
                             }
                         }
                     }
@@ -76,7 +76,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                bridge.playPause()
+                                controller.playPause()
                             }
                         }
                     }
@@ -89,7 +89,7 @@ Rectangle {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                bridge.nextButton()
+                                controller.nextButton()
                             }
                         }
                     }

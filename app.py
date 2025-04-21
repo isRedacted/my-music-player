@@ -6,7 +6,7 @@ from PyQt6.QtQml import QQmlApplicationEngine
 from PyQt6.QtCore import QSettings
 from PyQt6.QtWidgets import QFileDialog, QApplication
 
-from bridge import Bridge
+from controller import Controller
 
 app = QGuiApplication(sys.argv)
 dialogApp = QApplication(sys.argv)
@@ -28,8 +28,8 @@ if not settings.contains("library_dir") or not os.path.exists(settings.value("li
         sys.exit()
 
 # Bridge between QML frontend and PyQt backend
-bridge = Bridge()
-engine.rootContext().setContextProperty("bridge", bridge)
+controller = Controller()
+engine.rootContext().setContextProperty("controller", controller)
 
 # START BAYBEEE
 engine.quit.connect(app.quit)

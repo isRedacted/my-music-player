@@ -6,7 +6,7 @@ from player import Player
 # Send/receive mute state
 # Send/receive song progress state
 
-class Bridge(QObject):   
+class Controller(QObject):
     # Init
     def __init__(self):
         super().__init__()
