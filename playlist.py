@@ -32,7 +32,10 @@ class Playlist(QAbstractTableModel):
     def getPlaylistTags(self, playlist):
         tracks = []
         for t in playlist:
-            tracks.append(mutagen.File(t))
+            try:
+                tracks.append(mutagen.File(t))
+            except(mutagen.MutagenError):
+                tracks.append(["BROKEN LINK", t])
         return tracks
 
     # QAbstractTableModel virtual functions
