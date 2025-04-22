@@ -1,41 +1,40 @@
-# Add error checking for missing file
-import os
-import mutagen
+from mutagen import MutagenError, File
 from PyQt6.QtCore import QUrl, QAbstractTableModel, QModelIndex, Qt
-from charset_normalizer import from_path
+from PyQt6 import ItemDataRole
+
 
 class Playlist(QAbstractTableModel):
-    # Playlist is the m3u file url to be processed, columns is a list of user-specified tags to sort the list by (title, artist, etc), and the library directory
-    def __init__(self, playlist, columns, library):
+    def __init__(self, url: str, columns: list[str], library: str):
+        """
+        `url` is the m3u file url to be processed.
+
+        `columns` is a list of user-specified tags to sort the list by (title, artist, etc)
+        """
         super().__init__()
         self.library = library
-        self.playlist = self.parseM3UData(playlist, library)
+        self.url_list = self.parseM3UFile(url)
         self.columns = columns
-        self.tracks = self.getPlaylistTags(self.playlist)
+        self.tracks = self.getPlaylistTags(self.url_list)
 
-    def parseM3UData(self, url, library):
+    def parseM3UFile(self, url: QUrl):
         playlist = []
-        qurl = QUrl(url).url()
-        print(str(from_path(url)))
-        with open(qurl, 'r') as file:
-            for line in file.readlines():
-                if line.startswith("#EXT"):
-                    continue
-                elif os.path.exists(line):
-                    playlist.append(line.strip('\n'))
-                else:
-                    playlist.append(library + "/" + line.strip('\n'))
-                    print(line.strip('\n'))
+        with open(url.toString(), 'r', encoding="utf-8") as file:
+            playlist = [
+                self.library + '\\' + line.strip("\n")
+                for line in file
+                if not line.startswith("#EXT")
+            ]
         return playlist
 
-    # Return a list of mutagen FileType objects
-    def getPlaylistTags(self, playlist):
+    def getPlaylistTags(self, playlist: list[str]):
+        """Get a list of music file urls and return a dictlist of tags, or a list with a broken link tag, and the url"""
         tracks = []
-        for t in playlist:
+        for p in playlist:
             try:
-                tracks.append(mutagen.File(t))
-            except(mutagen.MutagenError):
-                tracks.append(["BROKEN LINK", t])
+                tags = File(p, easy=True)
+                tracks.append([tags, p])
+            except MutagenError:
+                tracks.append(["BROKEN LINK", p])
         return tracks
 
     # QAbstractTableModel virtual functions
@@ -45,6 +44,7 @@ class Playlist(QAbstractTableModel):
     def columnCount(self, parent=QModelIndex()):
         return len(self.columns)
 
+    # TODO
     def data(self, index, role=Qt.ItemDataRole.DisplayRole):
         row = index.row()
         column = index.column()
