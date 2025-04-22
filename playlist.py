@@ -10,9 +10,9 @@ class Playlist(QAbstractTableModel):
         """
         super().__init__()
         self.library = library
-        self.url_list = self.parseM3UFile(url)
+        self.track_url_list = self.parseM3UFile(url)
         self.columns = columns
-        self.tracks = self.getPlaylistTags(self.url_list)
+        self.tracks = self.getPlaylistTags(self.track_url_list)
 
     def parseM3UFile(self, url: QUrl):
         playlist = []
