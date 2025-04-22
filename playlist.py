@@ -2,7 +2,7 @@ from mutagen import MutagenError, File
 from PyQt6.QtCore import QUrl, QAbstractTableModel, QModelIndex, Qt
 
 class Playlist(QAbstractTableModel):
-    def __init__(self, url: str, columns: list[str], library: str):
+    def __init__(self, url: QUrl, library: str, columns = ["artist", "title", "album"]):
         """
         `url` is the m3u file url to be processed.
 
