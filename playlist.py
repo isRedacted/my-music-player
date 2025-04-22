@@ -1,7 +1,5 @@
 from mutagen import MutagenError, File
 from PyQt6.QtCore import QUrl, QAbstractTableModel, QModelIndex, Qt
-from PyQt6 import ItemDataRole
-
 
 class Playlist(QAbstractTableModel):
     def __init__(self, url: str, columns: list[str], library: str):
