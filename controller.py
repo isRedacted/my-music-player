@@ -4,10 +4,11 @@ from player import Player
 from playlist import Playlist
 from playlist_library import PlaylistLibrary
 
+
 class Controller(QObject):
     # Init (With saved playlist and saved columns)
     # TODO Implement overloading for last_playlist and columns
-    def __init__(self, library_dir: str, last_playlist: str = None, columns: list[str] = None):
+    def __init__(self, library_dir, last_playlist=None, columns=None):
         super().__init__()
         self.library_dir = library_dir
         self.player = Player()
@@ -19,14 +20,14 @@ class Controller(QObject):
     toQml = pyqtSignal(str)
 
     # Signals from PyQt
-    
+
     # Playlist controls
     @pyqtSlot(str)
-    def setPlaylist(self, url: str):
+    def setPlaylist(self, url):
         track_url_list = self.playlist.parseM3UFile(url)
         self.playlist.track_url_list = track_url_list
-        self.playlist.tracks = self.playlist.getPlaylistTags(track_url_list)
-    
+        self.playlist.tracks = self.playlist.getTrackTags(track_url_list)
+
     # Player controls
     @pyqtSlot(str)
     def fromQml(self, msg):
