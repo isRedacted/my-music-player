@@ -1,8 +1,8 @@
 import os
-from PyQt6.QtCore import QObject, QUrl
+from PyQt6.QtCore import QAbstractListModel, QUrl
 
-class PlaylistLibrary(QObject):
-    def __init__(self, library: QUrl):
+class PlaylistLibrary(QAbstractListModel):
+    def __init__(self, library):
         super().__init__()
         self.library = library
         
