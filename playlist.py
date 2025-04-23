@@ -58,10 +58,3 @@ class Playlist(QAbstractTableModel):
             return self.tracks[row].get(key, "")
         
         return QVariant()
-    
-    def roleNames(self):
-        roles = {}
-        for i, key in enumerate(self.columns):
-            roles[Qt.UserRole + 1 + i] = key.encode()
-        self.role_names = roles
-        return roles
