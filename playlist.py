@@ -1,5 +1,5 @@
 from mutagen import MutagenError, File
-from PyQt6.QtCore import QUrl, QAbstractTableModel, QModelIndex, Qt
+from PyQt6.QtCore import QVariant, QAbstractTableModel, QModelIndex, Qt
 
 class Playlist(QAbstractTableModel):
     def __init__(self, url, library_dir, columns = ["artist", "title", "album", "year"]):
@@ -10,12 +10,15 @@ class Playlist(QAbstractTableModel):
         """
         super().__init__()
         self.library_dir = library_dir
-        self.track_url_list = self.parseM3UFile(library_dir + "/" + url)
         self.columns = columns
-        self.tracks = self.getTrackTags(self.track_url_list)
+        self.url = url
+        self.track_url_list = self.parseM3UFile()
+        self.tracks = self.getTrackTags()
+        self.roles = self.roleNames()
             
-    def parseM3UFile(self, url: str):
+    def parseM3UFile(self):
         playlist = []
+        url = self.library_dir + "/" + self.url
         with open(url, 'r', encoding="utf-8") as file:
             playlist = [
                 self.library_dir + '/' + line.strip("\n")
@@ -24,10 +27,10 @@ class Playlist(QAbstractTableModel):
             ]
         return playlist
 
-    def getTrackTags(self, playlist: list[str]):
+    def getTrackTags(self):
         """Get a list of music file urls and return a dictlist of tags, or a list with a broken link tag, and the url"""
         tracks = []
-        for p in playlist:
+        for p in self.track_url_list:
             try:
                 tags = File(p, easy=True)
                 tracks.append(tags)
@@ -44,8 +47,21 @@ class Playlist(QAbstractTableModel):
 
     # TODO
     def data(self, index, role=Qt.ItemDataRole.DisplayRole):
-        #if role == Qt.ItemDataRole.DisplayRole:
-            
+        if not index.isValid():
+            return QVariant()
+        
         row = index.row()
         column = index.column()
-        return self.tracks[row][column]
+        
+        if role == Qt.ItemDataRole.DisplayRole:
+            key = self.columns[column]
+            return self.tracks[row].get(key, "")
+        
+        return QVariant()
+    
+    def roleNames(self):
+        roles = {}
+        for i, key in enumerate(self.columns):
+            roles[Qt.UserRole + 1 + i] = key.encode()
+        self.role_names = roles
+        return roles
