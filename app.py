@@ -28,10 +28,10 @@ if not settings.contains("library_dir") or not os.path.exists(settings.value("li
         settings.setValue("library_dir", library_dir)
     else:
         sys.exit()
-library_dir = QUrl(settings.value("library_dir"))
+library_dir = settings.value("library_dir")
 
 # Bridge between QML frontend and PyQt backend
-controller = Controller(library_dir)
+controller = Controller(library_dir, "test.m3u")
 engine.rootContext().setContextProperty("controller", controller)
 
 # START BAYBEEE
