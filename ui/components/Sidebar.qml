@@ -6,6 +6,9 @@ Rectangle {
     anchors.fill: parent
     color: Style.primaryColor
 
+    // Library button
+    // Horizontal seperator
+    // List of playlists
     ListView {
     }
 }
