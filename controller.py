@@ -7,8 +7,7 @@ from playlist_library import PlaylistLibrary
 
 class Controller(QObject):
     # Init (With saved playlist and saved columns)
-    # TODO Implement overloading for last_playlist and columns
-    def __init__(self, library_dir, last_playlist=None, columns=None):
+    def __init__(self, library_dir, last_playlist=None, columns=["artist", "title", "album", "year"]):
         super().__init__()
         self.library_dir = library_dir
         self.player = Player()
