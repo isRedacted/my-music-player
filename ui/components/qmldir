@@ -1,3 +1,3 @@
 # qmldir
 singleton Style Style.qml # type: ignore
-Home Home.qml # type: ignore
+Library Library.qml # type: ignore
