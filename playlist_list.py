@@ -2,13 +2,13 @@ import os
 from PyQt6.QtCore import QAbstractListModel, QModelIndex, Qt
 # TODO Add comments
 
-class PlaylistLibrary(QAbstractListModel):
+class PlaylistList(QAbstractListModel):
     def __init__(self, library_dir):
         super().__init__()
         self.library_dir = library_dir
-        self.playlists = self.getFolderPlaylists()
+        self.playlists = self.getLibraryPlaylists()
         
-    def getFolderPlaylists(self):
+    def getLibraryPlaylists(self):
         playlists = [str]
         for dirpath, dirname, filename in os.walk(self.library_dir):
             for file in filename:

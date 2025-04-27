@@ -2,7 +2,7 @@ from PyQt6.QtCore import QObject, pyqtSignal, pyqtSlot, QUrl
 
 from player import Player
 from playlist import Playlist
-from playlist_library import PlaylistLibrary
+from playlist_list import PlaylistList
 
 
 class Controller(QObject):
@@ -11,7 +11,7 @@ class Controller(QObject):
         super().__init__()
         self.library_dir = library_dir
         self.player = Player()
-        self.playlist_library = PlaylistLibrary(library_dir)
+        self.playlist_list = PlaylistList(library_dir)
         if (last_playlist != None):
             self.playlist = Playlist(last_playlist, library_dir, columns)
 
