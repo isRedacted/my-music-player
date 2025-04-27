@@ -11,7 +11,7 @@ QtObject {
 
     // Fonts/Font sizes
     property int fontSizeBig: 32
-    property int fontSizeMedium: 24
+    property int fontSizeMedium: 20
     property int fontSizeSmall: 14
 
     // Player button sizes
