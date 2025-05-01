@@ -1,5 +1,7 @@
-# My Music Player
+# My Music Player (ABANDONED)
 A (work in progress) music player does all the things that *I* want it to do. Designed to be small, simple, and perfomant. Feel free to fork or bug me if you want a certain feature!
+
+UPDATE: Development now shifted to [here](https://github.com/isRedacted/my-music-player-deluxe-turbo)
 
 (Screenshot TBD)
 
